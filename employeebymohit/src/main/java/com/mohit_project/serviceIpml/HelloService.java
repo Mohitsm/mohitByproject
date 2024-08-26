@@ -7,8 +7,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mohit_project.Entity.AddPayment;
 import com.mohit_project.Entity.Hello;
 import com.mohit_project.Repositry.HelloRepo;
+import com.mohit_project.exception.ResourceNotFoundException;
 
 
 
@@ -64,6 +66,13 @@ public class HelloService {
 		public long getPaidLeaveEmployees() {
 			// TODO Auto-generated method stub
 			return this.helloRepo.countPaidLeaveEmployees();
+		}
+		public void deleteattendance(Long id) {
+			// TODO Auto-generated method stub
+			Hello addPayment=this.helloRepo.findById(id).orElseThrow(()->new ResourceNotFoundException("AddPayment", "Id", id));
+
+			this.helloRepo.delete(addPayment);
+			
 		}
 
 

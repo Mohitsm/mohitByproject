@@ -6,7 +6,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mohit_project.Entity.Hello;
+import com.mohit_project.paylode.ApiResponse;
 import com.mohit_project.serviceIpml.HelloService;
 
 
@@ -74,6 +77,12 @@ public class HelloControler {
 		@GetMapping("/countPl")
 		public ResponseEntity<Long> countPaidLeaveEmployees(){
 			return ResponseEntity.ok(this.helloService.getPaidLeaveEmployees());
+
+		}
+		@DeleteMapping("/{id}")
+		public ResponseEntity<ApiResponse> deleteAddPayment(@PathVariable Long id){
+			this.helloService.deleteattendance(id);
+			return new ResponseEntity<ApiResponse>(new ApiResponse("User Dalete Successfully",true),HttpStatus.OK);
 
 		}
 		
