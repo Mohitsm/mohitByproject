@@ -48,30 +48,30 @@ public class HelloControler {
 	        return helloService.punchOut(id, LocalDateTime.now());
 	    }
 	    
-	    @GetMapping("/countp")
+	    @GetMapping("/countP")
 		public ResponseEntity<Long> countPresentEmployees(){
 			return ResponseEntity.ok(this.helloService.getPresentEmployees());
 
 		}
 
-		@GetMapping("/counta")
+		@GetMapping("/countA")
 		public ResponseEntity<Long> countAbsentEmployees(){
 			return ResponseEntity.ok(this.helloService.getAbsentEmployees());
 
 		}
 
-		@GetMapping("/countl")
+		@GetMapping("/countL")
 		public ResponseEntity<Long> countLateEmployees(){
 			return ResponseEntity.ok(this.helloService.getLateEmployees());
 
 		}
 
-		@GetMapping("/counth")
+		@GetMapping("/countH")
 		public ResponseEntity<Long> countHalfDayEmployees(){
 			return ResponseEntity.ok(this.helloService.getHalfDayEmployees());
 
 		}
-		@GetMapping("/countpl")
+		@GetMapping("/countPl")
 		public ResponseEntity<Long> countPaidLeaveEmployees(){
 			return ResponseEntity.ok(this.helloService.getPaidLeaveEmployees());
 
