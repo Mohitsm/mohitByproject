@@ -60,6 +60,11 @@ public class HelloService {
 			// TODO Auto-generated method stub
 			return this.helloRepo.countHalfDayEmployees();
 		}
+		
+		public long getPaidLeaveEmployees() {
+			// TODO Auto-generated method stub
+			return this.helloRepo.countPaidLeaveEmployees();
+		}
 
 
 }

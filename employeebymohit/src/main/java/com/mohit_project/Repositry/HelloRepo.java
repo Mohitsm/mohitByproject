@@ -19,6 +19,8 @@ public interface HelloRepo extends JpaRepository<Hello, Long> {
 	    long countLateEmployees();
 	 @Query("SELECT COUNT(e) FROM Hello e WHERE e.status = 'Half Day'")
 	    long countHalfDayEmployees();
+	 @Query("SELECT COUNT(e) FROM Hello e WHERE e.status = 'Paid Leave'")
+	    long countPaidLeaveEmployees();
 
 
 }

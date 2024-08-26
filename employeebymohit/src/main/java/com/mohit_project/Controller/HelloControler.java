@@ -71,6 +71,11 @@ public class HelloControler {
 			return ResponseEntity.ok(this.helloService.getHalfDayEmployees());
 
 		}
+		@GetMapping("/countpl")
+		public ResponseEntity<Long> countPaidLeaveEmployees(){
+			return ResponseEntity.ok(this.helloService.getPaidLeaveEmployees());
+
+		}
 		
 
 	
