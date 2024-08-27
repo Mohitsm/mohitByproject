@@ -60,7 +60,7 @@ public class EmployeeContro {
 	@Autowired
 	private FileService fileService;
 	
-	@Value("${project.image}")
+	@Value("${projectd.image}")
 	private String path;
 	
 	//create
