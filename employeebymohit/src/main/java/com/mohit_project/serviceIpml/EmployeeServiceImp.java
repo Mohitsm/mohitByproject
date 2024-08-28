@@ -42,14 +42,31 @@ public class EmployeeServiceImp implements EmployeeService {
 		// TODO Auto-generated method stub
 		Employee employee=this.employeeRepo.findById(employeeId).orElseThrow(()-> new ResourceNotFoundException("Employee", "Id", employeeId));
 		
-		employee.setName(employeeDto.getName());
-		employee.setEmail(employeeDto.getEmail());
-		//employee.setPassword(employeeDto.getPassword());
-//		employee.setImageName(employeeDto.getImageName());
-//		employee.setZmageName(employeeDto.getZmageName());
-		employee.setSalary(employeeDto.getSalary());
+//		employee.setName(employeeDto.getName());
+//		employee.setEmail(employeeDto.getEmail());
+//		//employee.setPassword(employeeDto.getPassword());
+////		employee.setImageName(employeeDto.getImageName());
+////		employee.setZmageName(employeeDto.getZmageName());
+//		employee.setSalary(employeeDto.getSalary());
+//		employee.setAddress(employeeDto.getAddress());
+//		employee.setCategory(employeeDto.getCategory());
+//		employee.set
 		employee.setAddress(employeeDto.getAddress());
 		employee.setCategory(employeeDto.getCategory());
+		employee.setDob(employeeDto.getDob());
+		employee.setEmail(employeeDto.getEmail());
+		employee.setFname(employeeDto.getFname());
+		employee.setGender(employeeDto.getGender());
+		employee.setJod(employeeDto.getJod());
+		employee.setMarritalStatus(employeeDto.getMarritalStatus());
+		employee.setMobile(employeeDto.getMobile());
+		employee.setName(employeeDto.getName());
+		employee.setPassword(employeeDto.getPassword());
+		employee.setSalary(employeeDto.getSalary());
+		employee.setSite(employeeDto.getSite());
+		employee.setStatus(employeeDto.getStatus());
+		employee.setWork(employeeDto.getWork());
+		
 		
 		Employee updateEmployee=this.employeeRepo.save(employee);
 		return this.modelMapper.map(updateEmployee, EmployeeDto.class);
