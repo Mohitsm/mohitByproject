@@ -24,6 +24,7 @@ public class Task {
     @Column(columnDefinition = "TEXT",length = 1000)
     private String taskAbout;
     private String employeeId;
+    private String name;
 
     // Getters and setters
 }
