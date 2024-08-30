@@ -25,6 +25,7 @@ public class Task {
     private String taskAbout;
     private String employeeId;
     private String name;
+    private String status;
 
     // Getters and setters
 }
