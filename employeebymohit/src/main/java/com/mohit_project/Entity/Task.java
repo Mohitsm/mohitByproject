@@ -1,5 +1,6 @@
 package com.mohit_project.Entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -28,7 +29,7 @@ public class Task {
     private String employeeId;
     private String name;
     private String status;
-    private LocalDateTime assign;
+    private LocalDate assign;
 
     // Getters and setters
 }

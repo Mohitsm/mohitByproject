@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import com.mohit_project.Entity.Task;
 import com.mohit_project.Repositry.TaskRepository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +18,7 @@ public class TaskService {
 
     public Task saveTask(Task task) {
     	task.setStatus("Task Assigned");
-    	task.setAssign(LocalDateTime.now());
+    	task.setAssign(LocalDate.now());
         return taskRepository.save(task);
     }
 
