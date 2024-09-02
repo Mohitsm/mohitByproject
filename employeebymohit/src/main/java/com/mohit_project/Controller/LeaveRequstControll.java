@@ -25,7 +25,7 @@ public class LeaveRequstControll {
 	private LeaveRequstService leaveRequstService;
 	
 	//create
-	@PostMapping("/")
+	@PostMapping("/post")
 	public ResponseEntity<LeaveRequst> create(@RequestBody LeaveRequst leaveRequst){
 		
 		LeaveRequst leaveRequst2=this.leaveRequstService.create(leaveRequst);

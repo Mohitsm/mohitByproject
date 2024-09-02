@@ -30,6 +30,7 @@ public class Task {
     private String name;
     private String status;
     private LocalDate assign;
+    private LocalDateTime complet;
 
     // Getters and setters
 }
