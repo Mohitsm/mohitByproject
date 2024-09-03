@@ -2,6 +2,7 @@ package com.mohit_project.Service;
 
 import java.util.List;
 
+import com.mohit_project.Entity.Employee;
 import com.mohit_project.paylode.EmployeeDto;
 
 public interface EmployeeService {
@@ -22,5 +23,7 @@ public interface EmployeeService {
 	public long getTransferredInEmployees();
 	public long getTransferredOutEmployees();
 	public long getExitedEmployeeEmployees();
+	public Long validateEmployee(String email, String password);
+//	  List<Employee> validateEmployees(String username, String password);
 
 }

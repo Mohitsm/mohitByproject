@@ -203,6 +203,33 @@ public class EmployeeContro {
 			InputStream resource=this.fileService.getResource(path, imageName);
 			response.setContentType(MediaType.IMAGE_JPEG_VALUE);
 			StreamUtils.copy(resource, response.getOutputStream());}
+		 @PostMapping("/login")
+		    public Long loginEmployee(@RequestBody EmployeeLoginRequest request) {
+		        return employeeService.validateEmployee(request.getEmail(), request.getPassword());
+		    }
+
+		    // DTO class for the login request
+		    public static class EmployeeLoginRequest {
+		        private String email;
+		        private String password;
+
+		        // Getters and Setters
+		        public String getEmail() {
+		            return email;
+		        }
+
+		        public void setEmail(String email) {
+		            this.email = email;
+		        }
+
+		        public String getPassword() {
+		            return password;
+		        }
+
+		        public void setPassword(String password) {
+		            this.password = password;
+		        }
+		    }
 
 		
 

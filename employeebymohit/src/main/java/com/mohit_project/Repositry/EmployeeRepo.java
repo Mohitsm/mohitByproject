@@ -1,5 +1,8 @@
 package com.mohit_project.Repositry;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -35,6 +38,10 @@ public interface EmployeeRepo extends JpaRepository<Employee, Long> {
 	    
 	    @Query("SELECT COUNT(e) FROM Employee e WHERE e.status = 'Exited Employee'")
 	    long countExitedEmployeeEmployees();
+	    
+	    Optional<Employee> findByEmailAndPassword(String email, String password);
+//	    List<Employee> findByUsernameAndPassword(String username, String password);
+
 	    
 	    
 

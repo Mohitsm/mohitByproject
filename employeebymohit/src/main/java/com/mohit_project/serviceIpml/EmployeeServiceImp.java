@@ -1,9 +1,7 @@
 package com.mohit_project.serviceIpml;
 
 import java.util.List;
-
-
-
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -166,5 +164,19 @@ public class EmployeeServiceImp implements EmployeeService {
 		// TODO Auto-generated method stub
 		return this.employeeRepo.countExitedEmployeeEmployees();
 	}
+	 public Long validateEmployee(String email, String password) {
+	        Optional<Employee> employee = employeeRepo.findByEmailAndPassword(email, password);
+	        return employee.map(Employee::getEmployeeId).orElse(null);
+	    }
+//	 @Override
+//	    public List<Employee> validateEmployees(String username, String password) {
+//	        // Fetch all employees matching the provided username and password
+//	        List<Employee> employees = employeeRepo.findByUsernameAndPassword(username, password);
+//
+//	        // Optionally filter out any other criteria if needed and return the list
+//	        return employees.stream()
+//	                        .filter(employee -> employee.getEmail().equals(username) && employee.getPassword().equals(password))
+//	                        .collect(Collectors.toList());
+//	    }
 
 }
