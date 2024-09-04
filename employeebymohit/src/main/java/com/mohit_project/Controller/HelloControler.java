@@ -80,6 +80,11 @@ public class HelloControler {
 			return ResponseEntity.ok(this.helloService.getPaidLeaveEmployees());
 
 		}
+		@GetMapping("/count")
+		public ResponseEntity<Long> countTotalAttendance(){
+			return ResponseEntity.ok(this.helloService.getTotalAttendance());
+
+		}
 		@DeleteMapping("/{id}")
 		public ResponseEntity<ApiResponse> deleteAddPayment(@PathVariable Long id){
 			this.helloService.deleteattendance(id);

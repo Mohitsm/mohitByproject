@@ -74,6 +74,9 @@ public class HelloService {
 			this.helloRepo.delete(addPayment);
 			
 		}
+		public Long getTotalAttendance() {
+			return helloRepo.count();
+		}
 
 
 }
