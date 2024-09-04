@@ -54,7 +54,7 @@ public class HelloService {
 		
 		public long getLateEmployees() {
 			// TODO Auto-generated method stub
-			return this.helloRepo.countAbsentEmployees();
+			return this.helloRepo.countLateEmployees();
 		}
 
 	

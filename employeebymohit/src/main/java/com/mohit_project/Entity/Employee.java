@@ -1,5 +1,6 @@
 package com.mohit_project.Entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -44,6 +45,12 @@ public class Employee {
 	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	 @JsonManagedReference
     private List<Attendance> attendances;
+	 @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+	 @JsonManagedReference
+	    private List<LeaveRequst> leaveRequests = new ArrayList();
+	 @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+	 @JsonManagedReference
+	    private List<EmployeeByDocument> employeeByDocuments = new ArrayList();
 
 
 }
