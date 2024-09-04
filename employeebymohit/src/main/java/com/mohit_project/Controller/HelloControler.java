@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mohit_project.Entity.Hello;
@@ -91,6 +92,30 @@ public class HelloControler {
 			return new ResponseEntity<ApiResponse>(new ApiResponse("User Dalete Successfully",true),HttpStatus.OK);
 
 		}
+		 @GetMapping("/present-days/{employeeId}")
+		    public Long getPresentDays(@PathVariable Long employeeId, @RequestParam int month, @RequestParam int year) {
+		        return helloService.countPresentDays(employeeId, month, year);
+		    }
+
+		    @GetMapping("/absent-days/{employeeId}")
+		    public Long getAbsentDays(@PathVariable Long employeeId, @RequestParam int month, @RequestParam int year) {
+		        return helloService.countAbsentDays(employeeId, month, year);
+		    }
+
+		    @GetMapping("/late-days/{employeeId}")
+		    public Long getLateDays(@PathVariable Long employeeId, @RequestParam int month, @RequestParam int year) {
+		        return helloService.countLateDays(employeeId, month, year);
+		    }
+
+		    @GetMapping("/half-days/{employeeId}")
+		    public Long getHalfDays(@PathVariable Long employeeId, @RequestParam int month, @RequestParam int year) {
+		        return helloService.countHalfDays(employeeId, month, year);
+		    }
+
+		    @GetMapping("/paid-leave-days/{employeeId}")
+		    public Long getPaidLeaveDays(@PathVariable Long employeeId, @RequestParam int month, @RequestParam int year) {
+		        return helloService.countPaidLeaveDays(employeeId, month, year);
+		    }
 		
 
 	

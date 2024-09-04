@@ -77,6 +77,25 @@ public class HelloService {
 		public Long getTotalAttendance() {
 			return helloRepo.count();
 		}
+		 public Long countPresentDays(Long employeeId, int month, int year) {
+		        return helloRepo.countPresentDays(employeeId, month, year);
+		    }
+
+		    public Long countAbsentDays(Long employeeId, int month, int year) {
+		        return helloRepo.countAbsentDays(employeeId, month, year);
+		    }
+
+		    public Long countLateDays(Long employeeId, int month, int year) {
+		        return helloRepo.countLateDays(employeeId, month, year);
+		    }
+
+		    public Long countHalfDays(Long employeeId, int month, int year) {
+		        return helloRepo.countHalfDays(employeeId, month, year);
+		    }
+
+		    public Long countPaidLeaveDays(Long employeeId, int month, int year) {
+		        return helloRepo.countPaidLeaveDays(employeeId, month, year);
+		    }
 
 
 }
