@@ -57,13 +57,22 @@ public class AttendanceServiceImpl implements AttendanceService {
                 .orElseThrow(() -> new RuntimeException("Employee not found"));
     }
 
+	
 	@Override
-	 public Attendance punchIn(Employee employeel) {
-        Attendance attendance = new Attendance();
-        attendance.setEmployee(employeel);
-        attendance.setPunchIn(LocalDateTime.now());
-        return attendanceRepository.save(attendance);
-    }
+	public Attendance punchIn(Employee employee) {
+	    // Check if the employee is already saved
+	    if (employee.getEmployeeId() == null) {
+	        // Save the employee if it is not saved yet
+	        employee = employeeRepository.save(employee);
+	    }
+
+	    // Create and save the attendance
+	    Attendance attendance = new Attendance();
+	    attendance.setEmployee(employee);
+	    attendance.setPunchIn(LocalDateTime.now());
+
+	    return attendanceRepository.save(attendance);
+	}
 
 	@Override
 	public List<Attendance> getAttendanceByEmployeeId(Long employeeId) {
