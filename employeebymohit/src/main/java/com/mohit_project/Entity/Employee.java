@@ -43,14 +43,21 @@ public class Employee {
 	private String work;
 	private String zmageName;
 	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	 @JsonManagedReference
+//	 @JsonManagedReference
     private List<Attendance> attendances;
+	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	 @JsonManagedReference
+   private List<Attendances> attendance;
 	 @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
 	 @JsonManagedReference
 	    private List<LeaveRequst> leaveRequests = new ArrayList();
 	 @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
 	 @JsonManagedReference
 	    private List<EmployeeByDocument> employeeByDocuments = new ArrayList();
-
+	 @Override
+	    public String toString() {
+	        // Ensure there's no recursive call here
+	        return "Employee [id=" + employeeId + ", name=" + name + "]";
+	    }
 
 }
