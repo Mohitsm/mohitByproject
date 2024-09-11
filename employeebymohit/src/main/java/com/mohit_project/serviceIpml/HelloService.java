@@ -96,6 +96,9 @@ public class HelloService {
 		    public Long countPaidLeaveDays(Long employeeId, int month, int year) {
 		        return helloRepo.countPaidLeaveDays(employeeId, month, year);
 		    }
+		    public List<Hello>getAllHelloByEmployee(Long employeeId){
+		    	return this.helloRepo.findByEmployeeId(employeeId);
+		    }
 
 
 }

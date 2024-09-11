@@ -1,5 +1,7 @@
 package com.mohit_project.Repositry;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.data.jpa.repository.Query;
@@ -37,6 +39,8 @@ public interface HelloRepo extends JpaRepository<Hello, Long> {
 
 	    @Query("SELECT COUNT(h) FROM Hello h WHERE h.employeeId = :employeeId AND h.status = 'paid-leave' AND FUNCTION('MONTH', h.punchIn) = :month AND FUNCTION('YEAR', h.punchIn) = :year")
 	    Long countPaidLeaveDays(@Param("employeeId") Long employeeId, @Param("month") int month, @Param("year") int year);
+	    
+	    List<Hello> findByEmployeeId(Long employeeId);
 
 
 }

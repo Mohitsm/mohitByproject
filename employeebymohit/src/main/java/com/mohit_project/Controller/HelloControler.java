@@ -116,6 +116,11 @@ public class HelloControler {
 		    public Long getPaidLeaveDays(@PathVariable Long employeeId, @RequestParam int month, @RequestParam int year) {
 		        return helloService.countPaidLeaveDays(employeeId, month, year);
 		    }
+		    @GetMapping("employee/{employeeId}")
+		    public ResponseEntity<List<Hello>> getAllHelloByEmployee(@PathVariable Long employeeId){
+		    	List<Hello> hellos=this.helloService.getAllHelloByEmployee(employeeId);
+		    	return ResponseEntity.ok(hellos);
+		    }
 		
 
 	
