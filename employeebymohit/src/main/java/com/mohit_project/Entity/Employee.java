@@ -2,6 +2,7 @@ package com.mohit_project.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -54,6 +55,11 @@ public class Employee {
 	 @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
 	 @JsonManagedReference
 	    private List<EmployeeByDocument> employeeByDocuments = new ArrayList();
+//	 @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+//	 @JsonManagedReference
+//	    private List<Salary> salaries = new ArrayList();
+	 @OneToMany(mappedBy = "employee")
+	    private Set<Salary> salaries;
 	 @Override
 	    public String toString() {
 	        // Ensure there's no recursive call here
