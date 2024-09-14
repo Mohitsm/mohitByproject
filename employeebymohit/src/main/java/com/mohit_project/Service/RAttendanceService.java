@@ -1,6 +1,7 @@
 package com.mohit_project.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,4 +34,8 @@ public class RAttendanceService {
 
 	        return rAttendanceRepo.save(attendance); // Save the updated record
 	    }
+	 
+	 public List<RAttendance> getAllRAttendanceByEmployeeId(Long employeeId){
+		 return this.rAttendanceRepo.findByEmployeeId(employeeId);
+	 }
 }
