@@ -46,12 +46,16 @@
 package com.mohit_project.Entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class KycUpdate {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long kycUpdateid;
+    private Long employeeId;
     private String aadharNo;
     private String aadharDocFilename; // Added field for Aadhar document filename
     private String panNo;
@@ -66,6 +70,8 @@ public class KycUpdate {
     // Getters and Setters
     public Long getKycUpdateid() { return kycUpdateid; }
     public void setKycUpdateid(Long kycUpdateid) { this.kycUpdateid = kycUpdateid; }
+    public Long getEmployeeId() { return employeeId; }
+    public void setEmployeeId(Long employeeId) { this.employeeId = employeeId; }
     public String getAadharNo() { return aadharNo; }
     public void setAadharNo(String aadharNo) { this.aadharNo = aadharNo; }
     public String getAadharDocFilename() { return aadharDocFilename; }

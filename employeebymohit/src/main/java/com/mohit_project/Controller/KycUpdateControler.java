@@ -3,17 +3,23 @@ package com.mohit_project.Controller;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mohit_project.Entity.KycUpdate;
+import com.mohit_project.Entity.RAttendance;
 import com.mohit_project.Service.KycUpdateService;
+import com.mohit_project.paylode.EmployeeDto;
 
 @RestController
 @RequestMapping("/api")
@@ -66,6 +72,10 @@ public class KycUpdateControler {
 	            return new ResponseEntity<>("Failed to create employee", HttpStatus.INTERNAL_SERVER_ERROR);
 	        }
 	    }
-	 
+
+	 @GetMapping("/kyc/{employeeId}")
+		public ResponseEntity<List<KycUpdate>> getEmployeeBId(@PathVariable Long employeeId){
+			return ResponseEntity.ok(this.kycUpdateService.getByEmployeeId(employeeId));
+		}
 
 }

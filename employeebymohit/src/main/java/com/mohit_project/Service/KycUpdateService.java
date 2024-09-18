@@ -165,13 +165,18 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mohit_project.Entity.Employee;
 import com.mohit_project.Entity.KycUpdate;
+import com.mohit_project.Entity.RAttendance;
 import com.mohit_project.Repositry.KycUpdateRepo;
+import com.mohit_project.exception.ResourceNotFoundException;
+import com.mohit_project.paylode.EmployeeDto;
 
 @Service
 public class KycUpdateService {
@@ -209,7 +214,7 @@ public class KycUpdateService {
 
             // Create a new Employee object
             KycUpdate employee = new KycUpdate();
-            employee.setKycUpdateid(employeeId);
+            employee.setEmployeeId(employeeId);
             employee.setAadharNo(aadharNo);
             employee.setAadharDocFilename(aadharFilename); // Set Aadhar doc filename
             employee.setPanNo(panNo);
@@ -237,5 +242,8 @@ public class KycUpdateService {
         Path destinationPath = rootLocation.resolve(filename);
         Files.createDirectories(destinationPath.getParent()); // Ensure directory exists
         file.transferTo(destinationPath.toFile());
+    }
+    public List<KycUpdate> getByEmployeeId(Long employeeId) {
+    	return this.kycUpdateRepository.findByEmployeeId(employeeId);
     }
 }
