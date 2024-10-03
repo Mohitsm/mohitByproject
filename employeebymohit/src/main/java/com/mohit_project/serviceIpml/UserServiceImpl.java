@@ -1,12 +1,14 @@
 package com.mohit_project.serviceIpml;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mohit_project.Entity.Employee;
 import com.mohit_project.Entity.User;
 import com.mohit_project.Repositry.UserRepo;
 import com.mohit_project.Service.UserService;
@@ -75,6 +77,12 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		
 		return userRepo.count();
+	}
+
+	@Override
+	public Long validateEmployee(String email, String password) {
+		 Optional<User> employee = userRepo.findByEmailAndPassword(email, password);
+	        return employee.map(User::getUserId).orElse(null);
 	}
 
 }

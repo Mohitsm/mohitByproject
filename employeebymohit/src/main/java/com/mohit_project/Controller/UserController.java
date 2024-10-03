@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mohit_project.Controller.EmployeeContro.EmployeeLoginRequest;
 import com.mohit_project.Service.UserService;
 import com.mohit_project.paylode.ApiResponse;
 import com.mohit_project.paylode.UserDto;
@@ -67,6 +68,35 @@ public class UserController {
 	        long count = userService.countUsers();
 	        return ResponseEntity.ok(count);
 	    }
+	 @PostMapping("/login")
+	    public Long loginEmployee(@RequestBody EmployeeLoginRequest request) {
+	        return userService.validateEmployee(request.getEmail(), request.getPassword());
+	    }
+
+	    // DTO class for the login request
+	    public static class EmployeeLoginRequest {
+	        private String email;
+	        private String password;
+
+	        // Getters and Setters
+	        public String getEmail() {
+	            return email;
+	        }
+
+	        public void setEmail(String email) {
+	            this.email = email;
+	        }
+
+	        public String getPassword() {
+	            return password;
+	        }
+
+	        public void setPassword(String password) {
+	            this.password = password;
+	        }
+	    }
+
+	
 	 
 
 }

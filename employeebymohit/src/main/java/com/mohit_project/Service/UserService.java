@@ -13,5 +13,6 @@ public interface UserService {
 	UserDto getUserById(Long userId);
 	List<UserDto> getAllUser();
 	public Long countUsers();
+	public Long validateEmployee(String email, String password);
 
 }
